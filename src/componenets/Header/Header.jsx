@@ -1,6 +1,7 @@
 import React from "react";
+import Button from "../Button/Button.jsx";
 
-const Header = (props) => {
+const Header = () => {
   const tg = window.Telegram.WebApp;
   const onClose = () => tg.close();
 
