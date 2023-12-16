@@ -8,10 +8,6 @@ const Form = () => {
   const [subject, setSubject] = useState("phisical");
   const { tg } = useTelegram();
 
-  const onChangeCountry = (e) => setCountry(e.target.value);
-  const onChangeCity = (e) => setCity(e.target.value);
-  const onChangeSubject = (e) => setSubject(e.target.value);
-
   useEffect(() => {
     tg.MainButton.setParams({
       text: "Button text",
@@ -25,6 +21,18 @@ const Form = () => {
       tg.MainButton.show();
     }
   }, [country, city]);
+
+  const onChangeCountry = (e) => {
+    return setCountry(e.target.value);
+  };
+
+  const onChangeCity = (e) => {
+    return setCity(e.target.value);
+  };
+
+  const onChangeSubject = (e) => {
+    return setSubject(e.target.value);
+  };
 
   return (
     <div className={"form"}>
