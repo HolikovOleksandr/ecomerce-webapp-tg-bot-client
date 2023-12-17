@@ -12,7 +12,7 @@ const Form = () => {
     tg.MainButton.setParams({
       text: "Button text",
     });
-  }, [tg]);
+  }, []);
 
   useEffect(() => {
     if (!city || !country) {
@@ -20,7 +20,7 @@ const Form = () => {
     } else {
       tg.MainButton.show();
     }
-  }, [country, city, tg]);
+  }, [country, city]);
 
   const onChangeCountry = (e) => {
     setCountry(e.target.value);
