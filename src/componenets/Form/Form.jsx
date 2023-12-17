@@ -5,14 +5,15 @@ import "./Form.css";
 const Form = () => {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
-  const [subject, setSubject] = useState("phisical");
+  const [subject, setSubject] = useState("physical"); // Виправлено значення опцій у select
+
   const { tg } = useTelegram();
 
   useEffect(() => {
     tg.MainButton.setParams({
       text: "Button text",
     });
-  });
+  }, [tg.MainButton]);
 
   useEffect(() => {
     if (!city || !country) {
@@ -20,18 +21,18 @@ const Form = () => {
     } else {
       tg.MainButton.show();
     }
-  }, [country, city]);
+  }, [country, city, tg]);
 
   const onChangeCountry = (e) => {
-    return setCountry(e.target.value);
+    setCountry(e.target.value);
   };
 
   const onChangeCity = (e) => {
-    return setCity(e.target.value);
+    setCity(e.target.value);
   };
 
   const onChangeSubject = (e) => {
-    return setSubject(e.target.value);
+    setSubject(e.target.value);
   };
 
   return (
@@ -52,8 +53,8 @@ const Form = () => {
         value={city}
       />
       <select className={"select"} value={subject} onChange={onChangeSubject}>
-        <option value={"phidsical"}>Physical person</option>
-        <option value={"phidsical"}>FOP</option>
+        <option value={"first"}>First</option>
+        <option value={"second"}>Second</option>
       </select>
     </div>
   );
