@@ -12,7 +12,7 @@ const Form = () => {
     tg.MainButton.setParams({
       text: "Button text",
     });
-  }, []);
+  });
 
   useEffect(() => {
     if (!city || !country) {
