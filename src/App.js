@@ -8,7 +8,10 @@ import Form from "./componenets/Form/Form.jsx";
 
 function App() {
   const { tg } = useTelegram();
-  useEffect(() => tg.ready());
+
+  useEffect(() => {
+    tg.ready();
+  }, [tg]);
 
   return (
     <div className="App">

@@ -5,15 +5,14 @@ import "./Form.css";
 const Form = () => {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
-  const [subject, setSubject] = useState("physical"); // Виправлено значення опцій у select
-
+  const [subject, setSubject] = useState("first");
   const { tg } = useTelegram();
 
   useEffect(() => {
     tg.MainButton.setParams({
       text: "Button text",
     });
-  }, [tg.MainButton]);
+  }, [tg]);
 
   useEffect(() => {
     if (!city || !country) {
@@ -37,20 +36,20 @@ const Form = () => {
 
   return (
     <div className={"form"}>
-      <h3>Enter some own data</h3>
+      <h3>Input data</h3>
       <input
         className={"input"}
         type="text"
         placeholder={"Country"}
-        onChange={onChangeCountry}
         value={country}
+        onChange={onChangeCountry}
       />
       <input
         className={"input"}
         type="text"
         placeholder={"City"}
-        onChange={onChangeCity}
         value={city}
+        onChange={onChangeCity}
       />
       <select className={"select"} value={subject} onChange={onChangeSubject}>
         <option value={"first"}>First</option>
