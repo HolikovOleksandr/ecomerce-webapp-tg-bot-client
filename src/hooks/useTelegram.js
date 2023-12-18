@@ -1,9 +1,7 @@
 const tg = window.Telegram.WebApp;
 
 export function useTelegram() {
-  const onClose = () => {
-    tg.close();
-  };
+  const onClose = () => tg.close();
 
   const onToggleButton = () => {
     if (tg.MainButton.isVisible) {
