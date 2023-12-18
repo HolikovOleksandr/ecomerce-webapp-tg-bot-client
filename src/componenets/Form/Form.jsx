@@ -12,7 +12,7 @@ const Form = () => {
     const data = { country, city, subject };
 
     tg.sendData(JSON.stringify(data));
-  }, [country, city, subject]);
+  }, [country, city, subject, tg]);
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
