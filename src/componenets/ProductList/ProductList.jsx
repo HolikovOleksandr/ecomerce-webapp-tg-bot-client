@@ -4,16 +4,16 @@ import ProductItem from "../ProductItem/ProductItem";
 import { useTelegram } from "../../hooks/useTelegram";
 
 const getTotalPrice = (items = []) => {
-  return items.reduce((acc, item) => acc + item.price, 0);
+  return items.reduce((acc, item) => (acc += item.price), 0);
 };
 
 const ProductList = () => {
   const [addedItems, setAddedItems] = useState([]);
   const { tg } = useTelegram();
-  let newItems = [];
 
   const onAdd = (product) => {
-    const alreadyAdded = addedItems.find((i) => i.id === product.id);
+    const alreadyAdded = addedItems.find((item) => item.id === product.id);
+    let newItems = [];
 
     if (alreadyAdded) {
       newItems = addedItems.filter((i) => i.id !== product.id);
