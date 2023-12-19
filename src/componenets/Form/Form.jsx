@@ -23,15 +23,11 @@ const Form = () => {
   }, [tg, onSendData]);
 
   useEffect(() => {
-    tg.MainButton.setParams({ text: "Button text" });
+    tg.MainButton.setParams({ text: "Send information" });
   }, [tg]);
 
   useEffect(() => {
-    if (!city || !country) {
-      tg.MainButton.hide();
-    } else {
-      tg.MainButton.show();
-    }
+    !city || !country ? tg.MainButton.hide() : tg.MainButton.show();
   }, [country, city, tg]);
 
   const onChangeCountry = (e) => {

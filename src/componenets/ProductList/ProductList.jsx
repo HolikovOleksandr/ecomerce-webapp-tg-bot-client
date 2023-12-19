@@ -15,13 +15,9 @@ const ProductList = () => {
     const alreadyAdded = addedItems.find((item) => item.id === product.id);
     let newItems = [];
 
-    if (alreadyAdded) {
-      newItems = addedItems.filter((i) => i.id !== product.id);
-      console.log(`${product.name} already has been!`);
-    } else {
-      newItems = [...addedItems, product];
-      console.log(`${product.name} was added!`);
-    }
+    alreadyAdded
+      ? (newItems = addedItems.filter((i) => i.id !== product.id))
+      : (newItems = [...addedItems, product]);
 
     setAddedItems(newItems);
 
