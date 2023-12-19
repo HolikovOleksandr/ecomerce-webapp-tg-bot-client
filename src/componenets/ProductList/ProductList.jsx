@@ -17,8 +17,10 @@ const ProductList = () => {
 
     if (alreadyAdded) {
       newItems = addedItems.filter((i) => i.id !== product.id);
+      console.log(`${product.name} already has been!`);
     } else {
       newItems = [...addedItems, product];
+      console.log(`${product.name} was added!`);
     }
 
     setAddedItems(newItems);
